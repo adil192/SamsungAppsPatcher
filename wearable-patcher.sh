@@ -60,8 +60,7 @@ if [ -z "$1" ]; then
   rm -rf decompiled/*
   # iterate through all apks in the apks directory
   for file in apks/*.apk; do
-    _apk=$(basename $file) # remove the directory
-    app="${_apk%.apk}" # remove the extension
+    app=$(basename "${file%.apk}")
     
     cecho "GREEN" "[${i} / ${numapks}] patching ${app}"
     patchapk "$app"
@@ -73,7 +72,7 @@ if [ -z "$1" ]; then
   echo 
   cecho "GREEN" 'Find all patched apps in the "patched" folder'
 else
-  app="${1%.apk}"
+  app=$(basename "${1%.apk}")
   rm -rf decompiled/${app}
   
   if [ ! -f "apks/${app}.apk" ]; then

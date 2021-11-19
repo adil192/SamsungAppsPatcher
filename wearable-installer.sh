@@ -35,8 +35,7 @@ echo
 i=1
 
 for file in "${directory}"/*.apk; do
-  _apk=$(basename $file) # remove the directory
-  app="${_apk%.apk}" # remove the extension
+  app=$(basename "${file%.apk}")
   
   cecho "GREEN" "[${i} / ${numapks}] installing ${app}"
   
