@@ -1,0 +1,164 @@
+--- smali/com/samsung/android/app/twatchmanager/util/HostManagerUtilsRulesBTDevices.smali
++++ smali/com/samsung/android/app/twatchmanager/util/HostManagerUtilsRulesBTDevices.smali
+@@ -980,158 +980,11 @@
+ .end method
+ 
+ .method private static isSupportedInHostDevice(Lcom/samsung/android/app/twatchmanager/model/GearInfo;)Z
+-    .locals 6
+-
+-    sget-object v0, Lcom/samsung/android/app/twatchmanager/util/HostManagerUtilsRulesBTDevices;->TAG:Ljava/lang/String;
+-
+-    const-string v1, "isSupportedInHostDevice()"
+-
+-    invoke-static {v0, v1}, Lcom/samsung/android/app/twatchmanager/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+-
+-    iget v0, p0, Lcom/samsung/android/app/twatchmanager/model/GearInfo;->hostMinMemory:I
+-
+-    int-to-double v0, v0
+-
+-    invoke-static {}, Lcom/samsung/android/app/twatchmanager/TWatchManagerApplication;->getAppContext()Landroid/content/Context;
+-
+-    move-result-object v2
+-
+-    invoke-static {v2}, Lcom/samsung/android/app/twatchmanager/util/HostManagerUtils;->getDeviceMemorySize(Landroid/content/Context;)D
+-
+-    move-result-wide v2
+-
+-    const/4 v4, 0x0
+-
+-    cmpl-double v5, v0, v2
+-
+-    sget-object v0, Lcom/samsung/android/app/twatchmanager/util/HostManagerUtilsRulesBTDevices;->TAG:Ljava/lang/String;
+-
+-    if-ltz v5, :cond_0
+-
+-    new-instance v1, Ljava/lang/StringBuilder;
+-
+-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+-
+-    const-string v2, "This model(Host) is under 1G ram, and device is gear. deviceName = "
+-
+-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+-
+-    iget-object v2, p0, Lcom/samsung/android/app/twatchmanager/model/GearInfo;->deviceName:Ljava/lang/String;
+-
+-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+-
+-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+-
+-    move-result-object v1
+-
+-    invoke-static {v0, v1}, Lcom/samsung/android/app/twatchmanager/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+-
+-    invoke-static {}, Lcom/samsung/android/app/twatchmanager/util/HostManagerUtils;->isGS3Model()Z
+-
+-    move-result v0
+-
+-    if-nez v0, :cond_1
+-
+-    return v4
+-
+-    :cond_0
+-    const-string v1, "host has required memory"
+-
+-    invoke-static {v0, v1}, Lcom/samsung/android/app/twatchmanager/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+-
+-    :cond_1
+-    invoke-static {}, Lcom/samsung/android/app/twatchmanager/util/HostManagerUtils;->isTablet()Z
+-
+-    move-result v0
+-
+-    if-eqz v0, :cond_2
+-
+-    iget-boolean v0, p0, Lcom/samsung/android/app/twatchmanager/model/GearInfo;->supportTablet:Z
+-
+-    if-nez v0, :cond_2
+-
+-    sget-object v0, Lcom/samsung/android/app/twatchmanager/util/HostManagerUtilsRulesBTDevices;->TAG:Ljava/lang/String;
+-
+-    new-instance v1, Ljava/lang/StringBuilder;
+-
+-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+-
+-    const-string v2, "This is not available device at tablet. deviceName = "
+-
+-    :goto_0
+-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+-
+-    iget-object p0, p0, Lcom/samsung/android/app/twatchmanager/model/GearInfo;->deviceName:Ljava/lang/String;
+-
+-    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+-
+-    :goto_1
+-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+-
+-    move-result-object p0
+-
+-    invoke-static {v0, p0}, Lcom/samsung/android/app/twatchmanager/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+-
+-    return v4
+-
+-    :cond_2
+-    invoke-static {}, Lcom/samsung/android/app/twatchmanager/util/HostManagerUtils;->isSamsungDevice()Z
+-
+-    move-result v0
+-
+-    if-nez v0, :cond_3
+-
+-    iget-boolean v0, p0, Lcom/samsung/android/app/twatchmanager/model/GearInfo;->supportNonSamsung:Z
+-
+-    if-nez v0, :cond_3
+-
+-    sget-object v0, Lcom/samsung/android/app/twatchmanager/util/HostManagerUtilsRulesBTDevices;->TAG:Ljava/lang/String;
+-
+-    new-instance v1, Ljava/lang/StringBuilder;
+-
+-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+-
+-    const-string v2, "unsupported in non samsung device :"
+-
+-    goto :goto_0
+-
+-    :cond_3
+-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
+-
+-    iget-object v1, p0, Lcom/samsung/android/app/twatchmanager/model/GearInfo;->group:Lcom/samsung/android/app/twatchmanager/model/GearGroup;
+-
+-    iget v1, v1, Lcom/samsung/android/app/twatchmanager/model/GearGroup;->maxAPILevel:I
+-
+-    if-le v0, v1, :cond_4
+-
+-    sget-object v0, Lcom/samsung/android/app/twatchmanager/util/HostManagerUtilsRulesBTDevices;->TAG:Ljava/lang/String;
+-
+-    new-instance v1, Ljava/lang/StringBuilder;
+-
+-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+-
+-    const-string v2, "unsupported in API level :"
+-
+-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+-
+-    iget-object p0, p0, Lcom/samsung/android/app/twatchmanager/model/GearInfo;->group:Lcom/samsung/android/app/twatchmanager/model/GearGroup;
+-
+-    iget p0, p0, Lcom/samsung/android/app/twatchmanager/model/GearGroup;->maxAPILevel:I
+-
+-    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+-
+-    goto :goto_1
+-
+-    :cond_4
+-    sget-object p0, Lcom/samsung/android/app/twatchmanager/util/HostManagerUtilsRulesBTDevices;->TAG:Ljava/lang/String;
+-
+-    const-string v0, "isSupportedInHostDevice() return true"
+-
+-    invoke-static {p0, v0}, Lcom/samsung/android/app/twatchmanager/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
++    .locals 1
+ 
+-    const/4 p0, 0x1
++    const/4 v0, 0x1
+ 
+-    return p0
++    return v0
+ .end method
+ 
+ .method public static removeBond(Landroid/bluetooth/BluetoothDevice;)Z
