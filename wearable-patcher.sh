@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 # count taken from https://stackoverflow.com/a/57436073/
 count() { echo $#; }
 
