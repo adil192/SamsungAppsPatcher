@@ -1,0 +1,51 @@
+--- smali_classes9/com/samsung/android/app/shealth/util/SignatureChecker.smali
++++ smali_classes9/com/samsung/android/app/shealth/util/SignatureChecker.smali
+@@ -24,10 +24,12 @@
+ 
+ .field private static final SIGNATURE_USER_RELEASEKEY:Landroid/content/pm/Signature;
+ 
++.field private static final SIGNATURE_CUSTOM:Landroid/content/pm/Signature;
++
+ 
+ # direct methods
+ .method static constructor <clinit>()V
+-    .locals 10
++    .locals 11
+ 
+     .line 17
+     new-instance v0, Landroid/content/pm/Signature;
+@@ -100,8 +102,17 @@
+     invoke-direct {v0, v1}, Landroid/content/pm/Signature;-><init>(Ljava/lang/String;)V
+ 
+     sput-object v0, Lcom/samsung/android/app/shealth/util/SignatureChecker;->SIGNATURE_ACTIVITY_TRACKER:Landroid/content/pm/Signature;
++    
++    .line 38
++    new-instance v0, Landroid/content/pm/Signature;
++
++    const-string v1, "308202ef308201d7a003020102020414698683300d06092a864886f70d01010b05003028312630240603550403131d53616d73756e6750617463682050617463684365727469666963617465301e170d3231303830323139303032345a170d3436303732373139303032345a3028312630240603550403131d53616d73756e675061746368205061746368436572746966696361746530820122300d06092a864886f70d01010105000382010f003082010a0282010100e7305c88fe815cad51ee59c6d424833dcef3ebcca98a64d43f5e7fce0225dc7131625fb0d07858b64c7a8da6a7c38a6361f3d8a8ef057e2d533c2e35132c5ca1452ef0b3e7b987ff34afc483626f1a8c89f76be9fd4e85c676040906b8601c3bdf01e373c156fbeb94159b0e7cc66c68d6a1900811f0d8d80328bb5807876d7d5f0f9768c0f98e66ebab0aa0f8966f11092d35130f375c06f7ca0d1d5abc2ed4c9eea664349f06e80ed09e4ac214bb61f085848b1733846b1eb771f1b41163e0babc4510392cb15f4f454a4b91bf1a07267e34d7daaa9da811d4c082fccd4ddc028cda3733a85991f7c9c218b14d03cedaa73599a8d8d033a4bfab44dc377cef0203010001a321301f301d0603551d0e0416041439f1b24007584379561b2d19af849f71da60d2dc300d06092a864886f70d01010b050003820101008315f6c17aa4eb4620da01163133265d1b4e8cf0788acaa19cb54c7f8e0fcd683e4aa9da7132db2804fa9feef2d0809a258058aaf75386c53577a12fa9656a6d5a6812aace735196452e51c6a4cdc4a83b5227361e7b1710f1023235206637371974cb95d009777559d05c8af510f80d4d527904039810fd8f887e3a39039bfe62f97d63d9f20df09c2df8d2b2a6e18d4790d38edb61d0685f534333189d938e36c07d6cfe5c67e2df92dabd5c33e57a40885ac8f79ba93223d4917f850b5bdf4cc79a6a73dcca34982efe71a25b5ae12c7dc142b6c62d637b8b061155eb40381be335a7bc159443993ca73fd80e79a4177fc62455fedef6e4c6e405a7f5fb61"
++
++    invoke-direct {v0, v1}, Landroid/content/pm/Signature;-><init>(Ljava/lang/String;)V
+ 
+-    const/4 v1, 0x7
++    sput-object v0, Lcom/samsung/android/app/shealth/util/SignatureChecker;->SIGNATURE_CUSTOM:Landroid/content/pm/Signature;
++
++    const v1, 0x8
+ 
+     new-array v1, v1, [Landroid/content/pm/Signature;
+ 
+@@ -142,8 +153,14 @@
+ 
+     aput-object v6, v1, v9
+ 
++    sget-object v6, Lcom/samsung/android/app/shealth/util/SignatureChecker;->SIGNATURE_CUSTOM:Landroid/content/pm/Signature;
++
+     const/4 v9, 0x6
+ 
++    aput-object v6, v1, v9
++
++    const/4 v9, 0x7
++
+     aput-object v0, v1, v9
+ 
+     sput-object v1, Lcom/samsung/android/app/shealth/util/SignatureChecker;->SIGNATURES_ENG:[Landroid/content/pm/Signature;
+
