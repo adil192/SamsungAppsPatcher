@@ -1,6 +1,6 @@
 --- smali/com/samsung/android/app/twatchmanager/util/HostManagerUtilsRulesBTDevices.smali
 +++ smali/com/samsung/android/app/twatchmanager/util/HostManagerUtilsRulesBTDevices.smali
-@@ -970,148 +970,11 @@
+@@ -1149,122 +1149,11 @@
  .end method
  
  .method private static isSupportedInHostDevice(Lcom/samsung/android/app/twatchmanager/model/GearInfo;)Z
@@ -85,7 +85,6 @@
 -
 -    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 -
--    :goto_1
 -    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 -
 -    move-result-object p0
@@ -114,31 +113,6 @@
 -    goto :goto_0
 -
 -    :cond_3
--    sget v1, Landroid/os/Build$VERSION;->SDK_INT:I
--
--    iget-object v2, p0, Lcom/samsung/android/app/twatchmanager/model/GearInfo;->group:Lcom/samsung/android/app/twatchmanager/model/GearGroup;
--
--    iget v2, v2, Lcom/samsung/android/app/twatchmanager/model/GearGroup;->maxAPILevel:I
--
--    if-le v1, v2, :cond_4
--
--    new-instance v1, Ljava/lang/StringBuilder;
--
--    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
--
--    const-string v2, "unsupported in API level :"
--
--    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
--
--    iget-object p0, p0, Lcom/samsung/android/app/twatchmanager/model/GearInfo;->group:Lcom/samsung/android/app/twatchmanager/model/GearGroup;
--
--    iget p0, p0, Lcom/samsung/android/app/twatchmanager/model/GearGroup;->maxAPILevel:I
--
--    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
--
--    goto :goto_1
--
--    :cond_4
 -    const-string p0, "isSupportedInHostDevice() return true"
 -
 -    invoke-static {v0, p0}, Lcom/samsung/android/app/twatchmanager/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
@@ -152,3 +126,4 @@
  .end method
  
  .method public static removeBond(Landroid/bluetooth/BluetoothDevice;)Z
+
