@@ -66,18 +66,22 @@ I'll write up a little guide for how to patch galaxy wearable apps to work on a 
 
 ## Patching the apps
 
-1. Download the apks of each of these (I got them from [apkmirror](https://www.apkmirror.com/)) and any other plugins you need. I also got the galaxy buds plugin (com.samsung.accessory.fridaymgr).
+1. Download the unmodified apks of the following if you need them (I got them from [apkmirror](https://www.apkmirror.com/)). Save these into the `SamsungAppsPatcher/apks` folder, overwriting an existing dummy file if one exists (this is to make sure the names match up with the patch files). If a dummy file doesn't exist, just name the apk something short and descriptive. Then delete any dummy files that you haven't replaced.
 
-   1. Samsung Accessory Service (com.samsung.accessory)
-   2. Galaxy Wearable (com.samsung.android.app.watchmanager)
-   3. Galaxy Watch PlugIn (com.samsung.android.geargplugin)
-   4. Samsung Health (com.sec.android.app.shealth)
-2. Rename each apk to something simpler (e.g. rename the Samsung Accessory app to `accessory.apk` and so on). They can be named whatever you want, just make sure that the Galaxy Watch PlugIn is named "watchplugin.apk" and Samsung Health is named "shealth.apk" to correspond with the patch files.
-3. Delete the dummy files in the `SamsungAppsPatcher/apks` folder and move the new apks into it.
-4. Open a terminal in the `SamsungAppsPatcher` folder. Run `./wearable-patcher.sh` to automatically patch the apps from the `SamsungAppsPatcher/apks` folder.
+   1. accessoryservice.apk: Samsung Accessory Service (com.samsung.accessory) *[REQUIRED]*
+   2. shealth.apk: Samsung Health (com.sec.android.app.shealth) *[REQUIRED]*
+   3. wearable.apk: Galaxy Wearable (com.samsung.android.app.watchmanager) *[REQUIRED]*
+   4. watchplugin.apk: Galaxy Watch Plugin (com.samsung.android.geargplugin)
+   5. gearfit2plugin.apk: Gear Fit2 Plugin
+   6. gearsportplugin.apk: Gear S Plugin
+   7. budsplugin.apk: Galaxy Buds Plugin
+   8. budsproplugin.apk: Galaxy Buds Pro Plugin
+   9. Other plugins: These will probably work fine unless they're a watch and need to integrate with samsung health, which means they need a specific signature verification patch.
+   
+2. Open a terminal in the `SamsungAppsPatcher` folder. Run `./wearable-patcher.sh` to automatically patch all the apps from the `SamsungAppsPatcher/apks` folder.
    - Sidenote: you can also patch a specific app like this: `./wearable-patcher.sh shealth`.
 
-5. Install the patched apks! You can do this with the `./wearable-installer.sh` script to batch install them, or just install them regularly.
+3. Install the patched apks! You can do this with the `./wearable-installer.sh` script to batch install them, or just install them regularly.
 
 
 
