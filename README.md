@@ -1,8 +1,6 @@
 # Samsung Apps Patcher for Samsung phones with custom ROMs
 
-I'll write up a little guide for how to patch galaxy wearable apps to work on a modified samsung phone. This has been taken from an [xda post by dansimko](https://forum.xda-developers.com/t/app-mod-galaxy-wearable-patch-for-samsung-phones-with-custom-roms.4208143/) but I wanted to make it a little easier to follow. I've done this on linux (Pop OS) but the process should be similar for other OSes.
-
-(This guide used to live on https://gist.github.com/adil192/ab95808fb66b6cde3d63ded6c19b0f1d. I've scripted the main part of it to make updates easier for me, so I've moved it to its own repo.)
+This is a guide to patch galaxy wearable apps to work on a modified samsung phone. This was originally taken from an [xda post by dansimko](https://forum.xda-developers.com/t/app-mod-galaxy-wearable-patch-for-samsung-phones-with-custom-roms.4208143/) but I wanted to make it a little easier to follow. I've since scripted the process, kept the patches up to date, and added new patches. The scripts are written for linux in bash, so if you're using something else, you could try the old (manual) guide at https://gist.github.com/adil192/ab95808fb66b6cde3d63ded6c19b0f1d.
 
 
 
@@ -10,7 +8,7 @@ I'll write up a little guide for how to patch galaxy wearable apps to work on a 
 
 1. Install apktool. You can find the official instructions [here](https://ibotpeaches.github.io/Apktool/install/). If you're on Pop OS like me, the apktool you install through apt is out of date (you'll want at least 2.6.0) so make sure to follow those instructions.
 
-2. If you don't want to use my keystore, install Android Studio. You could also generate a keystore without Android Studio and I've linked a guide for that.
+2. If you don't want to use my keystore, install Android Studio. You could also generate a keystore without Android Studio and I've linked a guide for that. I recommend that you use the provided keystore so you can update between your patched apps and mine without losing data.
 
 3. Install the latest version of platform-tools.
 
