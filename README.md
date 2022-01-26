@@ -14,7 +14,7 @@ I've added some prepatched apks and the platform-tools zip file to this MEGA dri
 
 0. Make sure your system satisfies the requirements (below) first.
 
-1. Download the unmodified apks of the following if you need them (I got them from apkmirror, linked below). Save these into the `SamsungAppsPatcher/apks` folder, overwriting an existing dummy file if one exists (this is to make sure the names match up with the patch files). If a dummy file doesn't exist, just name the apk something short and descriptive. Then delete any dummy files that you haven't replaced.
+1. Download the unmodified apks of the following if you need them (I got them from apkmirror, linked below). Save these into the `SamsungAppsPatcher/originals` folder, overwriting an existing dummy file if one exists (this is to make sure the names match up with the patch files). If a dummy file doesn't exist, just name the apk something short and descriptive. Then delete any dummy files that you haven't replaced.
 
    1. accessoryservice.apk: [Samsung Accessory Service](https://www.apkmirror.com/apk/samsung-electronics-co-ltd/samsung-accessory-service/) *[REQUIRED]*
    2. shealth.apk: [Samsung Health](https://www.apkmirror.com/apk/samsung-electronics-co-ltd/s-health/) *[REQUIRED]*
@@ -29,7 +29,7 @@ I've added some prepatched apks and the platform-tools zip file to this MEGA dri
    11. budsliveplugin.apk: [Galaxy Buds Live Plugin](https://www.apkmirror.com/apk/samsung-electronics-co-ltd/galaxy-buds-live-plugin/) *[not tested]*
    12. Other plugins: These will probably work fine unless they're a watch and need to integrate with samsung health, which means they need a specific signature verification patch.
 
-2. Open a terminal in the `SamsungAppsPatcher` folder. Run `./wearable-patcher.sh` to automatically patch all the apps from the `SamsungAppsPatcher/apks` folder.
+2. Open a terminal in the `SamsungAppsPatcher` folder. Run `./wearable-patcher.sh` to automatically patch all the apps from the `SamsungAppsPatcher/originals` folder.
    - Sidenote: you can also patch a specific app like this: `./wearable-patcher.sh shealth`.
 
 3. Install the patched apks! You can do this with the `./wearable-installer.sh` script to batch install them, or just install them regularly.

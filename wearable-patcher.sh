@@ -20,8 +20,8 @@ patchapk(){
   app="$1"
   
   # decompile app
-  apktool install-framework "apks/${app}.apk" # not sure if this line is necessary
-  apktool decode -f "apks/${app}.apk" -o "decompiled/${app}"
+  apktool install-framework "originals/${app}.apk" # not sure if this line is necessary
+  apktool decode -f "originals/${app}.apk" -o "decompiled/${app}"
 
   cd "decompiled/$app"
     # Use dansimko's command to remove the samsung check
@@ -56,12 +56,12 @@ mkdir -p patched
 mkdir -p decompiled
 
 i=1
-numapks=$(count apks/*.apk)
+numapks=$(count originals/*.apk)
 
 if [ -z "$1" ]; then
   rm -rf decompiled/*
-  # iterate through all apks in the apks directory
-  for file in apks/*.apk; do
+  # iterate through all apks in the originals directory
+  for file in originals/*.apk; do
     app=$(basename "${file%.apk}")
     
     cecho "GREEN" "[${i} / ${numapks}] patching ${app}"
@@ -76,10 +76,10 @@ if [ -z "$1" ]; then
 else
   app=$(basename "${1%.apk}")
   rm -rf decompiled/${app}
-  
-  if [ ! -f "apks/${app}.apk" ]; then
-    cecho "RED" "Cannot find file: apks/${app}.apk"
-    echo "Please make sure that the apk is in the apks directory."
+
+  if [ ! -f "originals/${app}.apk" ]; then
+    cecho "RED" "Cannot find file: originals/${app}.apk"
+    echo "Please make sure that the apk is in the originals directory."
   fi
   
   cecho "GREEN" "patching ${app}"
