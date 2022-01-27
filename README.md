@@ -69,7 +69,7 @@ I've added some prepatched apks and the platform-tools zip file to this MEGA dri
 
 
 
-## Generating a certificate (optional)
+## Generating a certificate (not necessary)
 
 0. If you're not using Android Studio, follow [this](https://stackoverflow.com/questions/3997748/how-can-i-create-a-keystore) to generate a keystore. Otherwise do the following...
 
