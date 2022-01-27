@@ -88,7 +88,7 @@ I've added some prepatched apks and the platform-tools zip file to this MEGA dri
    password2
    ```
 
-4. Get the hex for your certificate: Open a terminal in the `SamsungAppsPatcher` folder and enter `keytool -alias key0 -exportcert -keystore keystore.jks -storepass password1 | xxd -p`, replacing `password1` with yours. Now open both the .patch files and replace the existing hex with the output of this command (make sure to remove any spaces/linebreaks).
+4. Get the hex for your certificate: Open a terminal in the `SamsungAppsPatcher` folder and enter `keytool -alias key0 -exportcert -keystore keystore.jks -storepass password1 | xxd -p`, replacing `password1` with yours. Now remove the spaces/linebreaks from the output of this command, and keep it on hand. You'll need to open each patch file, and where the existing signature is added, replace it with yours. Make sure you only replace the signature on lines beginning with a `+`.
 
    ![image](https://user-images.githubusercontent.com/21128619/142562030-6ef6528a-f474-42a2-b3f2-142ea0bff430.png)
 
