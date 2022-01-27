@@ -93,7 +93,7 @@ I've added some prepatched apks and the platform-tools zip file to this MEGA dri
    ![image](https://user-images.githubusercontent.com/21128619/142562030-6ef6528a-f474-42a2-b3f2-142ea0bff430.png)
 
 
-### How to patch an new watch plugin
+## How to patch an new watch plugin
 
 1. Download the apk of the app you want to patch into the `originals` folder (rename it to something simple like active2plugin.apk to make things easier).
 
@@ -121,10 +121,10 @@ I've added some prepatched apks and the platform-tools zip file to this MEGA dri
   git format-patch -1
   ```
 
-6. You'll then get a patch file named like `0001-custom-cert.patch`. Rename this so that it begins with the apk name and an underscore: e.g. `active2plugin_custom_cert.patch`, and move it to the `patches` folder.
+6. You'll then get a patch file named like `0001-custom-cert.patch`. Rename this so that it begins with the apk name: e.g. `active2plugin-custom-cert.patch`, and move it to the `patches` folder.
 
   ```bash
-  mv 0001-custom-cert.patch ../../patches/active2plugin_custom_cert.patch
+  mv 0001-custom-cert.patch ../../patches/active2plugin-custom-cert.patch
   cd ../../  # move back to the PatchedApps folder
   ```
 
