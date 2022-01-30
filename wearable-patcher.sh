@@ -31,7 +31,7 @@ patchapk(){
       find . -type f -name "*.smali" -exec sed -i 's/sget-object \(v\|p\)\(.\+\), Landroid\/os\/Build;->\(MANUFACTURER\|BRAND\):Ljava\/lang\/String;/const-string \1\2, \"letitbeheardthisphoneistobetreatedasifitwereofabranddifferentfromtheonestartingwiths\"/g' "{}" \;
 
       # Use any patches we find that start with $app
-      for patch in ../../patches/"$app"[_-.]*.patch; do
+      for patch in ../../patches/${app}[\_\-\.]*.patch; do
         if [[ -f $patch ]]; then
           cecho "GREEN" "    patching ${app} with $(basename $patch)"
           patch -p0 -d . < "$patch"
