@@ -25,7 +25,7 @@ These are the apps that probably work along with a link to apkmirror where you c
 1. watchplugin.apk | [Galaxy Watch Plugin](https://www.apkmirror.com/apk/samsung-electronics-co-ltd/galaxy-watch-plugin/) | ★★★★★ Verified working by me
 2. watch3plugin.apk | [Galaxy Watch3 Plugin](https://www.apkmirror.com/apk/samsung-electronics-co-ltd/galaxy-watch3-plugin/) | ★★☆☆☆ Untested
 3. watch4plugin.apk | [Galaxy Watch4 Plugin](https://www.apkmirror.com/apk/samsung-electronics-co-ltd/galaxy-watch4-plugin/) | ☆☆☆☆☆ Not working
-4. activeplugin.apk | [Watch Active Plugin](https://www.apkmirror.com/apk/samsung-electronics-co-ltd/watch-active-plugin/) | ★★☆☆☆ Untested
+4. activeplugin.apk | [Watch Active Plugin](https://www.apkmirror.com/apk/samsung-electronics-co-ltd/watch-active-plugin/) | ★★★★☆ Probably working
 5. active2plugin.apk | [Watch Active2 Plugin](https://www.apkmirror.com/apk/samsung-electronics-co-ltd/watch-active2-plugin/) | ☆☆☆☆☆ Not working
 4. gearfit2plugin.apk | [Gear Fit2 Plugin](https://www.apkmirror.com/apk/samsung-electronics-co-ltd/gear-fit2-plugin/) | ★★★★☆ Probably working
 5. gearsportplugin.apk | [Gear S Plugin ](https://www.apkmirror.com/apk/samsung-electronics-co-ltd/gear-s-plugin/) | ★★★★☆ Probably working
