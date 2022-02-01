@@ -60,48 +60,44 @@ patchapk(){
 mkdir -p patched
 mkdir -p decompiled
 
-i=1
-numapks=$(count originals/*.apk)
-
 NO_PATCH=0
-APK_SPECIFIED=""
+APKS_SPECIFIED=()
 while [ ! $# -eq 0 ]; do
 	case "$1" in
 		--no-patch | -n)
       NO_PATCH=1
 			;;
     *)
-      APK_SPECIFIED="$1"
+      APKS_SPECIFIED+=("$1")
 	esac
 
 	shift
 done
 
-if [ -z "$APK_SPECIFIED" ]; then
-  rm -rf decompiled/*
-  # iterate through all apks in the originals directory
-  for file in originals/*.apk; do
-    app=$(basename "${file%.apk}")
+if [ -z "$APKS_SPECIFIED" ]; then
+  # if we don't specify any apps, patch all apps in the originals folder
+  APKS_SPECIFIED+=(originals/*.apk)
+fi
 
-    cecho "GREEN" "[${i} / ${numapks}] patching ${app}"
-    patchapk "$app" "$NO_PATCH"
-    cecho "GREEN" "[${i} / ${numapks}] successfully patched ${app}"
+count=1
+numapks=${#APKS_SPECIFIED[@]}
 
-    i=$((i+1))
-  done
-
-  echo
-  cecho "GREEN" 'Find all patched apps in the "patched" folder'
-else
-  app=$(basename "${APK_SPECIFIED%.apk}")
-  rm -rf decompiled/${app}
+for ((i=0; i<$numapks; i++)); do
+  app=$(basename "${APKS_SPECIFIED[$i]%.apk}")  # e.g. converts "originals/budsplugin.apk" to just "budsplugin"
 
   if [ ! -f "originals/${app}.apk" ]; then
     cecho "RED" "Cannot find file: originals/${app}.apk"
     echo "Please make sure that the apk is in the originals directory."
-  fi
+  else
+    rm -rf decompiled/${app}
 
-  cecho "GREEN" "patching ${app}"
-  patchapk "$app" "$NO_PATCH"
-  cecho "GREEN" "successfully patched ${app}. Find it at patched/${app}.apk"
-fi
+    cecho "GREEN" "[${count} / ${numapks}] patching ${app}"
+    patchapk "$app" "$NO_PATCH"
+    cecho "GREEN" "[${count} / ${numapks}] successfully patched ${app}"
+
+    count=$((count+1))
+  fi
+done
+
+echo
+echo 'Find all patched apps in the "patched" folder'
