@@ -61,11 +61,15 @@ mkdir -p patched
 mkdir -p decompiled
 
 NO_PATCH=0
+VERB_PRESENT="patching"
+VERB_PAST="patched"
 APKS_SPECIFIED=()
 while [ ! $# -eq 0 ]; do
 	case "$1" in
 		--no-patch | -n)
       NO_PATCH=1
+      VERB_PRESENT="decompiling"
+      VERB_PAST="decompiled"
 			;;
     *)
       APKS_SPECIFIED+=("$1")
@@ -91,13 +95,17 @@ for ((i=0; i<$numapks; i++)); do
   else
     rm -rf decompiled/${app}
 
-    cecho "GREEN" "[${count} / ${numapks}] patching ${app}"
+    cecho "GREEN" "[${count} / ${numapks}] ${VERB_PRESENT} ${app}"
     patchapk "$app" "$NO_PATCH"
-    cecho "GREEN" "[${count} / ${numapks}] successfully patched ${app}"
+    cecho "GREEN" "[${count} / ${numapks}] successfully ${VERB_PAST} ${app}"
 
     count=$((count+1))
   fi
 done
 
 echo
-echo 'Find all patched apps in the "patched" folder'
+if [ $NO_PATCH == 0 ]; then
+  echo 'Find all patched apps in the "patched" folder'
+else
+  echo 'Find all decompiled apps in the "decompiled" folder'
+fi
