@@ -85,6 +85,7 @@ fi
 
 count=1
 numapks=${#APKS_SPECIFIED[@]}
+not_all_dummies=0
 
 for ((i=0; i<$numapks; i++)); do
   app=$(basename "${APKS_SPECIFIED[$i]%.apk}")  # e.g. converts "originals/budsplugin.apk" to just "budsplugin"
@@ -97,6 +98,7 @@ for ((i=0; i<$numapks; i++)); do
     if [[ "$(sha1sum "originals/${app}.apk")" = "47493473d3f4d1c22a2703898095ac26e0968b87"* ]]; then
       echo "    detected as dummy file, skipped"
     else
+      not_all_dummies=1
       rm -rf decompiled/${app}
       patchapk "$app" "$NO_PATCH"
     fi
@@ -107,9 +109,13 @@ for ((i=0; i<$numapks; i++)); do
   echo
 done
 
-echo
-if [ $NO_PATCH == 0 ]; then
-  echo 'Find all patched apps in the "patched" folder'
+if [ $not_all_dummies == 0 ]; then
+  echo "Make sure to download some apps from the links in the \`App Support\` section:"
+  echo "    https://github.com/adil192/SamsungAppsPatcher#app-support"
 else
-  echo 'Find all decompiled apps in the "decompiled" folder'
+  if [ $NO_PATCH == 0 ]; then
+    echo 'Find all patched apps in the "patched" folder'
+  else
+    echo 'Find all decompiled apps in the "decompiled" folder'
+  fi
 fi
