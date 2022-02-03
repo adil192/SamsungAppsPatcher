@@ -93,14 +93,18 @@ for ((i=0; i<$numapks; i++)); do
     cecho "RED" "Cannot find file: originals/${app}.apk"
     echo "Please make sure that the apk is in the originals directory."
   else
-    rm -rf decompiled/${app}
-
     cecho "GREEN" "[${count} / ${numapks}] ${VERB_PRESENT} ${app}"
-    patchapk "$app" "$NO_PATCH"
+    if [[ "$(sha1sum "originals/${app}.apk")" = "47493473d3f4d1c22a2703898095ac26e0968b87"* ]]; then
+      echo "    detected as dummy file, skipped"
+    else
+      rm -rf decompiled/${app}
+      patchapk "$app" "$NO_PATCH"
+    fi
     cecho "GREEN" "[${count} / ${numapks}] successfully ${VERB_PAST} ${app}"
 
     count=$((count+1))
   fi
+  echo
 done
 
 echo
