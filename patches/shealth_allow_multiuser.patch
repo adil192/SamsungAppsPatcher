@@ -1,0 +1,70 @@
+--- AndroidManifest.xml
++++ AndroidManifest.xml
+@@ -113,7 +113,7 @@
+         <meta-data android:name="com.samsung.android.app.shealth.launch.activity.version" android:value="1"/>
+         <meta-data android:name="com.samsung.android.bixby.pathRuleAppName" android:value="SamsungHealth"/>
+         <meta-data android:name="android.max_aspect" android:value="2.4"/>
+-        <meta-data android:name="com.samsung.android.multiuser.install_only_owner" android:value="true"/>
++        <meta-data android:name="com.samsung.android.multiuser.install_only_owner" android:value="false"/>
+         <meta-data android:name="wear-trusted-peer-packages" android:value="com.samsung.android.wear.shealth:9CA5170F381919DFE0446FCDAB18B19A143B3163"/>
+         <receiver android:exported="false" android:name="com.samsung.android.app.shealth.receiver.BootReceiver" android:process=":remote">
+             <intent-filter>
+--- smali_classes2/com/samsung/android/app/shealth/app/state/MultiUserManager.smali
++++ smali_classes2/com/samsung/android/app/shealth/app/state/MultiUserManager.smali
+@@ -97,7 +97,7 @@
+     .locals 1
+
+     .line 55
+-    iget-object v0, p0, Lcom/samsung/android/app/shealth/app/state/MultiUserManager;->mState:Lcom/samsung/android/app/shealth/app/state/AppStateManager$State;
++    sget-object v0, Lcom/samsung/android/app/shealth/app/state/AppStateManager$MultiUserState;->OWNER:Lcom/samsung/android/app/shealth/app/state/AppStateManager$MultiUserState;
+
+     return-object v0
+ .end method
+@@ -134,42 +134,19 @@
+
+     cmp-long v0, v0, v2
+
+-    if-nez v0, :cond_0
+-
+     .line 35
+-    sget-object v0, Lcom/samsung/android/app/shealth/app/state/AppStateManager$MultiUserState;->OWNER:Lcom/samsung/android/app/shealth/app/state/AppStateManager$MultiUserState;
+-
+-    iput-object v0, p0, Lcom/samsung/android/app/shealth/app/state/MultiUserManager;->mState:Lcom/samsung/android/app/shealth/app/state/AppStateManager$State;
+-
+-    goto :goto_0
+-
+-    .line 37
+     :cond_0
+-    sget-object v0, Lcom/samsung/android/app/shealth/app/state/AppStateManager$MultiUserState;->OTHERS:Lcom/samsung/android/app/shealth/app/state/AppStateManager$MultiUserState;
++    sget-object v0, Lcom/samsung/android/app/shealth/app/state/AppStateManager$MultiUserState;->OWNER:Lcom/samsung/android/app/shealth/app/state/AppStateManager$MultiUserState;
+
+     iput-object v0, p0, Lcom/samsung/android/app/shealth/app/state/MultiUserManager;->mState:Lcom/samsung/android/app/shealth/app/state/AppStateManager$State;
+
+-    :goto_0
+     return-void
+ .end method
+
+ .method protected isStopState(Landroid/app/Activity;)Z
+     .locals 1
+
+-    .line 97
+-    iget-object p1, p0, Lcom/samsung/android/app/shealth/app/state/MultiUserManager;->mState:Lcom/samsung/android/app/shealth/app/state/AppStateManager$State;
++    const/4 v0, 0x0
+
+-    sget-object v0, Lcom/samsung/android/app/shealth/app/state/AppStateManager$MultiUserState;->OWNER:Lcom/samsung/android/app/shealth/app/state/AppStateManager$MultiUserState;
+-
+-    if-eq p1, v0, :cond_0
+-
+-    const/4 p1, 0x1
+-
+-    goto :goto_0
+-
+-    :cond_0
+-    const/4 p1, 0x0
+-
+-    :goto_0
+-    return p1
++    return v0
+ .end method
+--
+2.32.0
