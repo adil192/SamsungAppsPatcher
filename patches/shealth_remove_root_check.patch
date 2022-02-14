@@ -1,163 +1,5 @@
---- smali_classes3/com/samsung/android/app/shealth/home/oobe2/util/KnoxHandlerUtil.smali
-+++ smali_classes3/com/samsung/android/app/shealth/home/oobe2/util/KnoxHandlerUtil.smali
-@@ -288,55 +288,8 @@
- .end method
- 
- .method public final goToAppCloseWithKnoxIntegrityError(Landroid/app/Activity;Lcom/samsung/android/app/shealth/home/oobe2/viewmodel/KnoxHandlerViewModel$KnoxInitResult;)V
--    .locals 3
--
--    const-string v0, "context"
--
--    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
--
--    const-string v0, "it"
--
--    invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
--
--    .line 46
--    new-instance v0, Landroid/content/Intent;
--
--    const-class v1, Lcom/samsung/android/app/shealth/home/oobe2/view/HomeAppCloseActivity;
--
--    invoke-direct {v0, p1, v1}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
--
--    const/high16 v1, 0x4000000
--
--    .line 47
--    invoke-virtual {v0, v1}, Landroid/content/Intent;->setFlags(I)Landroid/content/Intent;
--
--    const/high16 v1, 0x10000
--
--    .line 48
--    invoke-virtual {v0, v1}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
--
--    .line 49
--    sget-object v1, Lcom/samsung/android/app/shealth/app/state/AppErrorCode$ErrorCode;->OOBE_ERROR_KNOX_ROOTING_DEVICE:Lcom/samsung/android/app/shealth/app/state/AppErrorCode$ErrorCode;
--
--    const-string v2, "extra_error_code"
--
--    invoke-virtual {v0, v2, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/io/Serializable;)Landroid/content/Intent;
--
--    .line 50
--    invoke-virtual {p0, p2}, Lcom/samsung/android/app/shealth/home/oobe2/util/KnoxHandlerUtil;->getErrorMessage(Lcom/samsung/android/app/shealth/home/oobe2/viewmodel/KnoxHandlerViewModel$KnoxInitResult;)Ljava/lang/String;
--
--    move-result-object p2
--
--    const-string v1, "extra_error_code_msg"
--
--    invoke-virtual {v0, v1, p2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
--
--    .line 51
--    invoke-virtual {p1, v0}, Landroid/app/Activity;->startActivity(Landroid/content/Intent;)V
--
--    .line 52
--    invoke-direct {p0, p1}, Lcom/samsung/android/app/shealth/home/oobe2/util/KnoxHandlerUtil;->finishAll(Landroid/app/Activity;)V
--
-+    .locals 0
-+    
-     return-void
- .end method
- 
---- smali_classes3/com/samsung/android/app/shealth/home/oobe2/view/HomeAppCloseActivity.smali
-+++ smali_classes3/com/samsung/android/app/shealth/home/oobe2/view/HomeAppCloseActivity.smali
-@@ -1442,42 +1442,11 @@
- .end method
- 
- .method private final isDeviceRooted()Z
--    .locals 2
--
--    .line 425
--    iget-object v0, p0, Lcom/samsung/android/app/shealth/home/oobe2/view/HomeAppCloseActivity;->mViewModel:Lcom/samsung/android/app/shealth/home/oobe2/viewmodel/HomeAppCloseViewModel;
--
--    if-eqz v0, :cond_1
--
--    invoke-virtual {v0}, Lcom/samsung/android/app/shealth/home/oobe2/viewmodel/HomeAppCloseViewModel;->getExtraErrorMsg()Ljava/lang/String;
--
--    move-result-object v0
--
--    const/4 v1, 0x0
--
--    if-eqz v0, :cond_0
--
--    invoke-static {v0}, Lcom/samsung/android/sdk/healthdata/privileged/KnoxControl;->checkWarrantyBit(Ljava/lang/String;)I
--
--    move-result v0
--
--    if-gtz v0, :cond_0
--
--    const/4 v0, 0x1
--
--    move v1, v0
--
--    :cond_0
--    return v1
--
--    :cond_1
--    const-string v0, "mViewModel"
--
--    invoke-static {v0}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
-+    .locals 1
- 
-     const/4 v0, 0x0
- 
--    throw v0
-+    return v0
- .end method
- 
- .method private final showClosePopup(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
---- smali_classes3/com/samsung/android/app/shealth/home/oobe2/view/HomeConsentBaseFragment$initKnoxData$1.smali
-+++ smali_classes3/com/samsung/android/app/shealth/home/oobe2/view/HomeConsentBaseFragment$initKnoxData$1.smali
-@@ -366,20 +366,7 @@
- 
-     .line 589
-     :cond_3
--    sget-object v0, Lcom/samsung/android/app/shealth/home/oobe2/util/KnoxHandlerUtil;->INSTANCE:Lcom/samsung/android/app/shealth/home/oobe2/util/KnoxHandlerUtil;
--
--    iget-object v1, p0, Lcom/samsung/android/app/shealth/home/oobe2/view/HomeConsentBaseFragment$initKnoxData$1;->this$0:Lcom/samsung/android/app/shealth/home/oobe2/view/HomeConsentBaseFragment;
--
--    invoke-virtual {v1}, Landroidx/fragment/app/Fragment;->requireActivity()Landroidx/fragment/app/FragmentActivity;
--
--    move-result-object v1
--
--    invoke-static {v1, v3}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
--
--    invoke-static {p1, v4}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
--
--    invoke-virtual {v0, v1, p1}, Lcom/samsung/android/app/shealth/home/oobe2/util/KnoxHandlerUtil;->goToAppCloseWithKnoxIntegrityError(Landroid/app/Activity;Lcom/samsung/android/app/shealth/home/oobe2/viewmodel/KnoxHandlerViewModel$KnoxInitResult;)V
--
-+    
-     goto :goto_0
- 
-     :cond_4
---- smali_classes3/com/samsung/android/app/shealth/home/oobe2/viewmodel/KnoxHandlerViewModel.smali
-+++ smali_classes3/com/samsung/android/app/shealth/home/oobe2/viewmodel/KnoxHandlerViewModel.smali
-@@ -263,8 +263,7 @@
- .method public final getMIsKnoxAvailable()Z
-     .locals 1
- 
--    .line 32
--    iget-boolean v0, p0, Lcom/samsung/android/app/shealth/home/oobe2/viewmodel/KnoxHandlerViewModel;->mIsKnoxAvailable:Z
-+    const/4 v0, 0x0
- 
-     return v0
- .end method
-@@ -372,10 +371,12 @@
- .end method
- 
- .method public final setMIsKnoxAvailable(Z)V
--    .locals 0
-+    .locals 1
-+
-+    const/4 v0, 0x0
- 
-     .line 32
--    iput-boolean p1, p0, Lcom/samsung/android/app/shealth/home/oobe2/viewmodel/KnoxHandlerViewModel;->mIsKnoxAvailable:Z
-+    iput-boolean v0, p0, Lcom/samsung/android/app/shealth/home/oobe2/viewmodel/KnoxHandlerViewModel;->mIsKnoxAvailable:Z
- 
-     return-void
- .end method
---- smali_classes9/com/samsung/android/sdk/healthdata/privileged/IKnoxControl$Stub$Proxy.smali
-+++ smali_classes9/com/samsung/android/sdk/healthdata/privileged/IKnoxControl$Stub$Proxy.smali
+--- smali_classes2/com/samsung/android/sdk/healthdata/privileged/IKnoxControl$Stub$Proxy.smali
++++ smali_classes2/com/samsung/android/sdk/healthdata/privileged/IKnoxControl$Stub$Proxy.smali
 @@ -146,104 +146,11 @@
  .end method
  
@@ -254,10 +96,11 @@
 -
 -    .line 142
 -    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-+    .locals 1
- 
+-
 -    .line 143
 -    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
++    .locals 1
++
 +    const/4 v0, 0x0
  
 -    .line 144
@@ -266,8 +109,8 @@
  .end method
  
  .method public isKnoxMigrationNeeded()Z
---- smali_classes9/com/samsung/android/sdk/healthdata/privileged/KnoxControl.smali
-+++ smali_classes9/com/samsung/android/sdk/healthdata/privileged/KnoxControl.smali
+--- smali_classes2/com/samsung/android/sdk/healthdata/privileged/KnoxControl.smali
++++ smali_classes2/com/samsung/android/sdk/healthdata/privileged/KnoxControl.smali
 @@ -180,26 +180,9 @@
  .end method
  
@@ -297,8 +140,8 @@
  
      return v0
  .end method
---- smali_classes9/com/samsung/android/service/health/HealthService$knoxControl$1.smali
-+++ smali_classes9/com/samsung/android/service/health/HealthService$knoxControl$1.smali
+--- smali_classes2/com/samsung/android/service/health/HealthService$knoxControl$1.smali
++++ smali_classes2/com/samsung/android/service/health/HealthService$knoxControl$1.smali
 @@ -84,12 +84,7 @@
  .method public isKnoxAvailable()Z
      .locals 1
@@ -313,13 +156,11 @@
  
      return v0
  .end method
---- smali_classes9/com/samsung/android/service/health/security/IcccAdapter.smali
-+++ smali_classes9/com/samsung/android/service/health/security/IcccAdapter.smali
-@@ -23,82 +23,13 @@
-     return-void
+--- smali_classes2/com/samsung/android/service/health/security/IcccAdapter.smali
++++ smali_classes2/com/samsung/android/service/health/security/IcccAdapter.smali
+@@ -24,81 +24,11 @@
  .end method
  
-+# not sure if this is patched correctly - adil
  .method static checkKnoxCompromised(Landroid/content/Context;Z)I
 -    .locals 3
 -
@@ -391,18 +232,20 @@
 -
 -    .line 114
 -    invoke-interface {p0, v0, p1}, Lcom/samsung/android/service/health/security/IntegrityChecker;->doLoggingForException(Ljava/lang/Throwable;Ljava/lang/String;)V
-+    .locals 1
- 
+-
 -    move p0, v1
-+    const/4 v0, 0x0
- 
+-
 -    :goto_1
 -    return p0
++    .locals 1
++
++    const/4 v0, 0x0
++
 +    return v0
  .end method
  
  .method static fillNewCommonErrorCode(Landroid/content/Context;Ljava/lang/StringBuilder;)V
-@@ -464,27 +395,6 @@
+@@ -464,27 +394,6 @@
  
      invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
  
@@ -430,18 +273,20 @@
      .line 149
      invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
  
---- smali_classes9/com/samsung/android/service/health/security/KnoxAdapter.smali
-+++ smali_classes9/com/samsung/android/service/health/security/KnoxAdapter.smali
-@@ -67,12 +67,7 @@
+--- smali_classes2/com/samsung/android/service/health/security/KnoxAdapter.smali
++++ smali_classes2/com/samsung/android/service/health/security/KnoxAdapter.smali
+@@ -66,13 +66,8 @@
+     .locals 1
  
      const/4 v0, 0x0
- 
+-
 -    .line 87
 -    invoke-static {p0, v0}, Lcom/samsung/android/service/health/security/IcccAdapter;->checkKnoxCompromised(Landroid/content/Context;Z)I
 -
 -    move-result p0
 -
 -    return p0
++
 +    return v0
  .end method
  
@@ -473,10 +318,11 @@
 -    :cond_1
 -    :goto_0
 -    const/4 p0, 0x1
-+    const/4 v0, 0x0
- 
+-
 -    :goto_1
 -    return p0
++    const/4 v0, 0x0
++
 +    return v0
  .end method
  
@@ -532,9 +378,10 @@
 -    invoke-virtual {p0}, Ljava/lang/Boolean;->booleanValue()Z
 -
 -    move-result p0
-+    const/4 v0, 0x0
- 
+-
 -    return p0
++    const/4 v0, 0x0
++
 +    return v0
  .end method
  
@@ -547,7 +394,7 @@
 +    .locals 1
  
      const/4 v0, 0x0
- 
+-
 -    .line 178
 -    :try_start_0
 -    invoke-static {p0}, Lcom/samsung/android/service/health/security/KeyRetrievalMode;->get(Landroid/content/Context;)Lcom/samsung/android/service/health/security/KeyRetrievalMode;
@@ -582,17 +429,17 @@
 -
 -    :catch_0
 -    :cond_2
++
      return v0
  .end method
---- smali_classes9/kotlin/io/FilesKt__FilePathComponentsKt.smali
-+++ smali_classes9/kotlin/io/FilesKt__FilePathComponentsKt.smali
+--- smali_classes2/kotlin/io/FilesKt__FilePathComponentsKt.smali
++++ smali_classes2/kotlin/io/FilesKt__FilePathComponentsKt.smali
 @@ -191,32 +191,7 @@
  .method public static final isRooted(Ljava/io/File;)Z
      .locals 1
  
 -    const-string v0, "$this$isRooted"
-+    const/4 v0, 0x0
- 
+-
 -    invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 -
 -    .line 85
@@ -619,5 +466,169 @@
 -
 -    :goto_0
 -    return p0
++    const/4 v0, 0x0
++
 +    return v0
  .end method
+--- smali_classes4/com/samsung/android/app/shealth/home/oobe2/util/KnoxHandlerUtil.smali
++++ smali_classes4/com/samsung/android/app/shealth/home/oobe2/util/KnoxHandlerUtil.smali
+@@ -565,84 +565,13 @@
+ .end method
+ 
+ .method public final showKnoxExceptionPopup(Landroid/app/Activity;)V
+-    .locals 3
+-
+-    const-string v0, "context"
+-
+-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+-
+-    .line 56
+-    new-instance v0, Landroid/content/Intent;
+-
+-    const-class v1, Lcom/samsung/android/app/shealth/home/oobe2/view/HomeAppCloseActivity;
+-
+-    invoke-direct {v0, p1, v1}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
+-
+-    .line 57
+-    sget-object v1, Lcom/samsung/android/app/shealth/app/state/AppErrorCode$ErrorCode;->DP_DISCONNECTED_EXCEPTION:Lcom/samsung/android/app/shealth/app/state/AppErrorCode$ErrorCode;
+-
+-    const-string v2, "extra_error_code"
+-
+-    invoke-virtual {v0, v2, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/io/Serializable;)Landroid/content/Intent;
+-
+-    .line 58
+-    invoke-virtual {p1, v0}, Landroid/app/Activity;->startActivity(Landroid/content/Intent;)V
+-
+-    .line 59
+-    invoke-direct {p0, p1}, Lcom/samsung/android/app/shealth/home/oobe2/util/KnoxHandlerUtil;->finishAll(Landroid/app/Activity;)V
+-
++    .locals 0
++
+     return-void
+ .end method
+ 
+ .method public final showKnoxIntegrityErrorPopup(Landroid/app/Activity;Lcom/samsung/android/app/shealth/home/oobe2/viewmodel/KnoxHandlerViewModel$KnoxInitResult;)V
+-    .locals 3
+-
+-    const-string v0, "context"
+-
+-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+-
+-    const-string v0, "it"
+-
+-    invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+-
+-    .line 46
+-    new-instance v0, Landroid/content/Intent;
+-
+-    const-class v1, Lcom/samsung/android/app/shealth/home/oobe2/view/HomeAppCloseActivity;
+-
+-    invoke-direct {v0, p1, v1}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
+-
+-    const/high16 v1, 0x4000000
+-
+-    .line 47
+-    invoke-virtual {v0, v1}, Landroid/content/Intent;->setFlags(I)Landroid/content/Intent;
+-
+-    const/high16 v1, 0x10000
+-
+-    .line 48
+-    invoke-virtual {v0, v1}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
+-
+-    .line 49
+-    sget-object v1, Lcom/samsung/android/app/shealth/app/state/AppErrorCode$ErrorCode;->OOBE_ERROR_KNOX_ROOTING_DEVICE:Lcom/samsung/android/app/shealth/app/state/AppErrorCode$ErrorCode;
+-
+-    const-string v2, "extra_error_code"
+-
+-    invoke-virtual {v0, v2, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/io/Serializable;)Landroid/content/Intent;
+-
+-    .line 50
+-    invoke-virtual {p0, p2}, Lcom/samsung/android/app/shealth/home/oobe2/util/KnoxHandlerUtil;->getErrorMessage(Lcom/samsung/android/app/shealth/home/oobe2/viewmodel/KnoxHandlerViewModel$KnoxInitResult;)Ljava/lang/String;
+-
+-    move-result-object p2
+-
+-    const-string v1, "extra_error_code_msg"
+-
+-    invoke-virtual {v0, v1, p2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+-
+-    .line 51
+-    invoke-virtual {p1, v0}, Landroid/app/Activity;->startActivity(Landroid/content/Intent;)V
+-
+-    .line 52
+-    invoke-direct {p0, p1}, Lcom/samsung/android/app/shealth/home/oobe2/util/KnoxHandlerUtil;->finishAll(Landroid/app/Activity;)V
+-
++    .locals 0
++
+     return-void
+ .end method
+--- smali_classes4/com/samsung/android/app/shealth/home/oobe2/view/HomeAppCloseActivity.smali
++++ smali_classes4/com/samsung/android/app/shealth/home/oobe2/view/HomeAppCloseActivity.smali
+@@ -1530,42 +1530,11 @@
+ .end method
+ 
+ .method private final isDeviceRooted()Z
+-    .locals 2
+-
+-    .line 484
+-    iget-object v0, p0, Lcom/samsung/android/app/shealth/home/oobe2/view/HomeAppCloseActivity;->mViewModel:Lcom/samsung/android/app/shealth/home/oobe2/viewmodel/HomeAppCloseViewModel;
+-
+-    if-eqz v0, :cond_1
+-
+-    invoke-virtual {v0}, Lcom/samsung/android/app/shealth/home/oobe2/viewmodel/HomeAppCloseViewModel;->getExtraErrorMsg()Ljava/lang/String;
+-
+-    move-result-object v0
+-
+-    const/4 v1, 0x0
+-
+-    if-eqz v0, :cond_0
+-
+-    invoke-static {v0}, Lcom/samsung/android/sdk/healthdata/privileged/KnoxControl;->checkWarrantyBit(Ljava/lang/String;)I
+-
+-    move-result v0
+-
+-    if-gtz v0, :cond_0
+-
+-    const/4 v0, 0x1
+-
+-    move v1, v0
+-
+-    :cond_0
+-    return v1
+-
+-    :cond_1
+-    const-string v0, "mViewModel"
+-
+-    invoke-static {v0}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
++    .locals 1
+ 
+     const/4 v0, 0x0
+ 
+-    throw v0
++    return v0
+ .end method
+ 
+ .method private final showClosePopup(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+--- smali_classes4/com/samsung/android/app/shealth/home/oobe2/viewmodel/KnoxHandlerViewModel.smali
++++ smali_classes4/com/samsung/android/app/shealth/home/oobe2/viewmodel/KnoxHandlerViewModel.smali
+@@ -265,8 +265,7 @@
+ .method public final getMIsKnoxAvailable()Z
+     .locals 1
+ 
+-    .line 32
+-    iget-boolean v0, p0, Lcom/samsung/android/app/shealth/home/oobe2/viewmodel/KnoxHandlerViewModel;->mIsKnoxAvailable:Z
++    const/4 v0, 0x0
+ 
+     return v0
+ .end method
+@@ -376,9 +375,6 @@
+ .method public final setMIsKnoxAvailable(Z)V
+     .locals 0
+ 
+-    .line 32
+-    iput-boolean p1, p0, Lcom/samsung/android/app/shealth/home/oobe2/viewmodel/KnoxHandlerViewModel;->mIsKnoxAvailable:Z
+-
+     return-void
+ .end method
+ 
+--
+2.32.0

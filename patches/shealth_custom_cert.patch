@@ -1,5 +1,5 @@
---- smali_classes9/com/samsung/android/app/shealth/util/SignatureChecker.smali
-+++ smali_classes9/com/samsung/android/app/shealth/util/SignatureChecker.smali
+--- smali_classes2/com/samsung/android/app/shealth/util/SignatureChecker.smali
++++ smali_classes2/com/samsung/android/app/shealth/util/SignatureChecker.smali
 @@ -24,10 +24,12 @@
  
  .field private static final SIGNATURE_USER_RELEASEKEY:Landroid/content/pm/Signature;
