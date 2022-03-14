@@ -569,7 +569,7 @@
  .method private final isDeviceRooted()Z
 -    .locals 2
 -
--    .line 484
+-    .line 487
 -    iget-object v0, p0, Lcom/samsung/android/app/shealth/home/oobe2/view/HomeAppCloseActivity;->mViewModel:Lcom/samsung/android/app/shealth/home/oobe2/viewmodel/HomeAppCloseViewModel;
 -
 -    if-eqz v0, :cond_1
