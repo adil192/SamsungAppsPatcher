@@ -6,7 +6,9 @@ This is a guide to patch galaxy wearable apps to work on a modified samsung phon
 
 ## Download pre-patched apps
 
-I've added some prepatched apks and the platform-tools zip file to this MEGA drive: https://mega.nz/folder/sUFj2C5b#M4zEP-c9ylY-ENxPw7qCUQ.
+You can find the pre-patched apks at https://adil.hanney.org/SamsungAppsPatcher/.
+
+Older apks and the platform-tools zip are in the MEGA drive: https://mega.nz/folder/sUFj2C5b#M4zEP-c9ylY-ENxPw7qCUQ.
 
 
 
