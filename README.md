@@ -50,7 +50,7 @@ These are the apps that probably work along with a link to apkmirror where you c
 1. Download the unpatched apks of the three core apps and any plugins you need. You can find the links in the [App support](https://github.com/adil192/SamsungAppsPatcher#app-support) section. Save these into the `SamsungAppsPatcher/originals` folder. Feel free to delete the dummy apks first as they're just there to make sure you name your downloaded apks correctly.
 2. Open a terminal in the `SamsungAppsPatcher` folder. Run `./wearable-patcher.sh` to automatically patch all the apps from the `SamsungAppsPatcher/originals` folder.
    - Sidenote: you can also patch a specific app like this: `./wearable-patcher.sh shealth`.
-3. Install the patched apks! You can do this with the `./wearable-installer.sh` script to batch install them, or just install them regularly.
+3. Install the patched apks! You can do this with the `./wearable-installer.sh` script to batch install them, or just install them regularly. However, you will need to uninstall the old apps (signed by Samsung) before you can use the modded apps with a custom signature: `./wearable-wipe.sh` (not necessary if you've already got the modded apps installed).
 
 
 
