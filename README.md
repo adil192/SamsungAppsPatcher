@@ -58,7 +58,7 @@ These are the apps that probably work along with a link to apkmirror where you c
 
 1. Install apktool. You can find the official instructions [here](https://ibotpeaches.github.io/Apktool/install/). If you're on Pop OS like me, the apktool you install through apt is out of date (you'll want at least 2.6.0) so make sure to follow those instructions.
 
-2. If you don't want to use my keystore, install Android Studio. You could also generate a keystore without Android Studio and I've linked a guide for that. I recommend that you use the provided keystore so you can update between your patched apps and mine without losing data.
+2. If you don't want to use my keystore, install Android Studio. You could also generate a keystore without Android Studio and I've linked a guide for that later. I recommend that you use the provided keystore so you can update between your patched apps and mine without losing data.
 
 3. Install the latest version of platform-tools.
 
@@ -111,7 +111,7 @@ These are the apps that probably work along with a link to apkmirror where you c
    ![image](https://user-images.githubusercontent.com/21128619/142562030-6ef6528a-f474-42a2-b3f2-142ea0bff430.png)
 
 
-## How to patch an new watch plugin
+## How to patch a new watch plugin
 
 1. Download the apk of the app you want to patch into the `originals` folder (rename it to something simple like active2plugin.apk to make things easier).
 
