@@ -1,0 +1,13 @@
+--- smali/com/samsung/android/app/twatchmanager/util/HostManagerUtils.smali
++++ smali/com/samsung/android/app/twatchmanager/util/HostManagerUtils.smali
+@@ -63,7 +63,7 @@
+ 
+     const/4 v2, 0x0
+ 
+-    const-string v3, "HUAWEI"
++    const-string v3, "XXXXXXXXXX"
+ 
+     aput-object v3, v1, v2
+ 
+--
+2.32.0
