@@ -37,6 +37,12 @@ patchapk(){
           patch -p0 -d . < "$patch"
         fi
       done
+      for patch in ../../patches/${app}[\_\-\.]*.sh; do
+        if [[ -f $patch ]]; then
+          cecho "GREEN" "    patching ${app} with $(basename $patch)"
+          bash "$patch"
+        fi
+      done
     cd ../../
 
     # rebuild apk (into the $app/dist directory)
