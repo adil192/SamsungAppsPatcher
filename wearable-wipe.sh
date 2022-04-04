@@ -24,6 +24,9 @@ apps=(
   "com.samsung.accessory.beansmgr" # Gear IconX (2018)
   "com.samsung.android.watch.budscontroller" # Samsung Buds Controller
 )
+apps_system=(
+  "com.samsung.android.app.watchmanagerstub" # Wearable Manager Installer
+)
 
 echo "Uninstalling all Galaxy Wearable apps so that the modded ones can take their place without signature mismatches."
 read -p "Press Enter to continue, or Ctrl+C to cancel.
@@ -35,6 +38,15 @@ adb devices
 
 for app in "${apps[@]}"
 do :
-  echo "Uninstalling $app"
+  echo "# Uninstalling $app"
   adb shell pm uninstall "$app"
+done
+
+echo
+
+for app in "${apps_system[@]}"
+do :
+  echo "# Uninstalling $app"
+  adb shell pm uninstall "$app"
+  adb shell pm uninstall --user 0 "$app"
 done
