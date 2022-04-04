@@ -29,6 +29,10 @@ patchapk(){
       # Use dansimko's command to remove the samsung check
       cecho "GREEN" "    patching samsung check in ${app}"
       find . -type f -name "*.smali" -exec sed -i 's/sget-object \(v\|p\)\(.\+\), Landroid\/os\/Build;->\(MANUFACTURER\|BRAND\):Ljava\/lang\/String;/const-string \1\2, \"letitbeheardthisphoneistobetreatedasifitwereofabranddifferentfromtheonestartingwiths\"/g' "{}" \;
+      
+      cecho "GREEN" "    patching samsung account dependency in ${app}"
+      find . -type f -name "*.xml" -exec sed -i 's/com\.osp\.app\.signin/com.notsamsung.dummy/g' "{}" \;
+      find . -type f -name "*.smali" -exec sed -i 's/com\.osp\.app\.signin/com.notsamsung.dummy/g' "{}" \;
 
       # Use any patches we find that start with $app
       for patch in ../../patches/${app}[\_\-\.]*.patch; do
