@@ -1,0 +1,56 @@
+--- smali_classes5/com/samsung/android/app/shealth/runtime/sep/SepSakCheckerImpl.smali
++++ smali_classes5/com/samsung/android/app/shealth/runtime/sep/SepSakCheckerImpl.smali
+@@ -18,47 +18,12 @@
+ 
+ 
+ # virtual methods
+-.method public isSakSupported()Z
+-    .locals 2
+-
+-    const-string v0, "ro.security.keystore.keytype"
+-
+-    const-string v1, ""
+-
+-    .line 35
+-    invoke-static {v0, v1}, Landroid/os/SemSystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+-
+-    move-result-object v0
+-
+-    .line 36
+-    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+-
+-    move-result v1
+-
+-    if-nez v1, :cond_0
+-
+-    sget-object v1, Ljava/util/Locale;->US:Ljava/util/Locale;
+ 
+-    .line 37
+-    invoke-virtual {v0, v1}, Ljava/lang/String;->toUpperCase(Ljava/util/Locale;)Ljava/lang/String;
+-
+-    move-result-object v0
+-
+-    const-string v1, "SAK"
+-
+-    invoke-virtual {v0, v1}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+-
+-    move-result v0
+-
+-    if-eqz v0, :cond_0
+-
+-    const/4 v0, 0x1
+-
+-    goto :goto_0
++# disabled Samsung Attestation Key (SAK)
++.method public isSakSupported()Z
++    .locals 1
+ 
+-    :cond_0
+     const/4 v0, 0x0
+-
+-    :goto_0
++
+     return v0
+ .end method
+--
+2.32.0
