@@ -70,7 +70,7 @@ These are the apps that <s>probably work</s> (please check the [project website]
       export PATH="~/Android/Sdk/build-tools/31.0.0/:$PATH"
       ```
 
-   2. If that doesn't work out for you, I have zipped up a combined platform-tools and build-tools folder in the MEGA drive. Extract this to a folder like `~/platform-tools` and add it to path, e.g. add the following to your `~/.bashrc`...
+   2. If that doesn't work out for you, I have zipped up a combined platform-tools and build-tools folder in the MEGA drive. This is not updated regularly so I heavily recommend the above method. Extract this to a folder like `~/platform-tools` and add it to path, e.g. add the following to your `~/.bashrc`...
 
       ```bash
       # add android platform tools to path
