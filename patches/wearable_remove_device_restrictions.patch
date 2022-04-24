@@ -1,6 +1,6 @@
 --- smali/com/samsung/android/app/twatchmanager/util/HostManagerUtilsRulesBTDevices.smali
 +++ smali/com/samsung/android/app/twatchmanager/util/HostManagerUtilsRulesBTDevices.smali
-@@ -1149,122 +1149,11 @@
+@@ -1160,122 +1160,11 @@
  .end method
  
  .method private static isSupportedInHostDevice(Lcom/samsung/android/app/twatchmanager/model/GearInfo;)Z
