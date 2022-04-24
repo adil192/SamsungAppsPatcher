@@ -6,41 +6,41 @@ This is a guide to patch galaxy wearable apps to work on a modified samsung phon
 
 ## Download pre-patched apps
 
-You can find the pre-patched apks at https://adil.hanney.org/SamsungAppsPatcher/.
+You can find the pre-patched apks at the project website: https://adil.hanney.org/SamsungAppsPatcher/.
 
-Older apks and the platform-tools zip are in the MEGA drive: https://mega.nz/folder/sUFj2C5b#M4zEP-c9ylY-ENxPw7qCUQ.
+The platform-tools zip are in the MEGA drive, if you need them to patch your own apps: https://mega.nz/folder/sUFj2C5b#M4zEP-c9ylY-ENxPw7qCUQ.
 
 
 
 ## App support
 
-These are the apps that probably work along with a link to apkmirror where you can download an **unpatched** apk. Please note that I cannot test the majority of the plugins because I don't have the devices myself.
+These are the apps that <s>probably work</s> (please check the [project website](https://adil.hanney.org/SamsungAppsPatcher/) for compatibility ratings) along with a link to apkmirror where you can download an **unpatched** apk. Please note that I cannot test the majority of the plugins because I don't have the devices myself, and no longer use my Galaxy Watch regularly.
 
 ### Core
 
-1. accessoryservice.apk | [Samsung Accessory Service](https://www.apkmirror.com/apk/samsung-electronics-co-ltd/samsung-accessory-service/) | ★★★★★ Verified working by me
-2. shealth.apk | [Samsung Health](https://www.apkmirror.com/apk/samsung-electronics-co-ltd/s-health/) | ★★★★★ Verified working by me
-3. wearable.apk | [Galaxy Wearable](https://www.apkmirror.com/apk/samsung-electronics-co-ltd/samsung-gear/) | ★★★★★ Verified working by me
+1. accessoryservice.apk | [Samsung Accessory Service](https://www.apkmirror.com/apk/samsung-electronics-co-ltd/samsung-accessory-service/)
+2. shealth.apk | [Samsung Health](https://www.apkmirror.com/apk/samsung-electronics-co-ltd/s-health/)
+3. wearable.apk | [Galaxy Wearable](https://www.apkmirror.com/apk/samsung-electronics-co-ltd/samsung-gear/)
 
 ### Watch plugins
 
-1. watchplugin.apk | [Galaxy Watch Plugin](https://www.apkmirror.com/apk/samsung-electronics-co-ltd/galaxy-watch-plugin/) | ★★★★★ Verified working by me
-2. watch3plugin.apk | [Galaxy Watch3 Plugin](https://www.apkmirror.com/apk/samsung-electronics-co-ltd/galaxy-watch3-plugin/) | ★★☆☆☆ Untested
-3. watch4plugin.apk | [Galaxy Watch4 Plugin](https://www.apkmirror.com/apk/samsung-electronics-co-ltd/galaxy-watch4-plugin/) | ☆☆☆☆☆ Not working
-4. activeplugin.apk | [Watch Active Plugin](https://www.apkmirror.com/apk/samsung-electronics-co-ltd/watch-active-plugin/) | ★★★★☆ Probably working
-5. active2plugin.apk | [Watch Active2 Plugin](https://www.apkmirror.com/apk/samsung-electronics-co-ltd/watch-active2-plugin/) | ☆☆☆☆☆ Not working
-4. gearfit2plugin.apk | [Gear Fit2 Plugin](https://www.apkmirror.com/apk/samsung-electronics-co-ltd/gear-fit2-plugin/) | ★★★★☆ Probably working
-5. gearsportplugin.apk | [Gear S Plugin ](https://www.apkmirror.com/apk/samsung-electronics-co-ltd/gear-s-plugin/) | ★★★★☆ Probably working
-6. Other watches: Watch plugins that integrate with Samsung Health verify their certificate so they won't work without a specific custom certificate patch (there's a section below on how to patch it yourself). (☆☆☆☆☆)
+1. watchplugin.apk | [Galaxy Watch Plugin](https://www.apkmirror.com/apk/samsung-electronics-co-ltd/galaxy-watch-plugin/)
+2. watch3plugin.apk | [Galaxy Watch3 Plugin](https://www.apkmirror.com/apk/samsung-electronics-co-ltd/galaxy-watch3-plugin/)
+3. watch4plugin.apk | [Galaxy Watch4 Plugin](https://www.apkmirror.com/apk/samsung-electronics-co-ltd/galaxy-watch4-plugin/)
+4. activeplugin.apk | [Watch Active Plugin](https://www.apkmirror.com/apk/samsung-electronics-co-ltd/watch-active-plugin/)
+5. active2plugin.apk | [Watch Active2 Plugin](https://www.apkmirror.com/apk/samsung-electronics-co-ltd/watch-active2-plugin/)
+4. gearfit2plugin.apk | [Gear Fit2 Plugin](https://www.apkmirror.com/apk/samsung-electronics-co-ltd/gear-fit2-plugin/)
+5. gearsportplugin.apk | [Gear S Plugin ](https://www.apkmirror.com/apk/samsung-electronics-co-ltd/gear-s-plugin/)
+6. Other watches: Watch plugins that integrate with Samsung Health verify their certificate so they won't work without a specific custom certificate patch (there's a section below on how to patch it yourself).
 
 ### Other plugins
 
-1. budsplugin.apk | [Galaxy Buds Manager](https://www.apkmirror.com/apk/samsung-electronics-co-ltd/galaxy-buds-plugin/) | ★★★★★ Verified working by me
-2. budsproplugin.apk | [Galaxy Buds Pro Manager](https://www.apkmirror.com/apk/samsung-electronics-co-ltd/galaxy-buds-pro/) | ★★★★☆ Probably working
-3. buds2plugin.apk | [Galaxy Buds2 Manager](https://www.apkmirror.com/apk/samsung-electronics-co-ltd/galaxy-buds2/) | ★★★★☆ Probably working
-4. budsplusplugin.apk | [Galaxy Buds+ Manager](https://www.apkmirror.com/apk/samsung-electronics-co-ltd/galaxy-buds-plugin-2/) | ★★★★☆ Probably working
-5. budsliveplugin.apk | [Galaxy Buds Live Manager](https://www.apkmirror.com/apk/samsung-electronics-co-ltd/galaxy-buds-live-plugin/) | ★★★★☆ Probably working
-5. Other plugins: These will most likely work without any customised patches needed. Just run the apk through `./wearable-patcher.sh`. (★★★☆☆)
+1. budsplugin.apk | [Galaxy Buds Manager](https://www.apkmirror.com/apk/samsung-electronics-co-ltd/galaxy-buds-plugin/)
+2. budsproplugin.apk | [Galaxy Buds Pro Manager](https://www.apkmirror.com/apk/samsung-electronics-co-ltd/galaxy-buds-pro/)
+3. buds2plugin.apk | [Galaxy Buds2 Manager](https://www.apkmirror.com/apk/samsung-electronics-co-ltd/galaxy-buds2/)
+4. budsplusplugin.apk | [Galaxy Buds+ Manager](https://www.apkmirror.com/apk/samsung-electronics-co-ltd/galaxy-buds-plugin-2/)
+5. budsliveplugin.apk | [Galaxy Buds Live Manager](https://www.apkmirror.com/apk/samsung-electronics-co-ltd/galaxy-buds-live-plugin/)
+5. Other plugins: These will most likely work without any customised patches needed. Just run the apk through `./wearable-patcher.sh`.
 
 
 
