@@ -4,6 +4,13 @@ This is a guide to patch galaxy wearable apps to work on a modified samsung phon
 
 
 
+## Important notice
+
+| As I've moved on from having a Samsung phone and Samsung accessories, I will no longer be maintaining this project. |
+| ------------------------------------------------------------ |
+
+
+
 ## Download pre-patched apps
 
 You can find the pre-patched apks at the project website: https://adil.hanney.org/SamsungAppsPatcher/.
