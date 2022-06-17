@@ -1,6 +1,6 @@
 --- AndroidManifest.xml
 +++ AndroidManifest.xml
-@@ -112,7 +112,7 @@
+@@ -121,7 +121,7 @@
          <meta-data android:name="com.samsung.android.app.shealth.launch.activity.version" android:value="1"/>
          <meta-data android:name="com.samsung.android.bixby.pathRuleAppName" android:value="SamsungHealth"/>
          <meta-data android:name="android.max_aspect" android:value="2.4"/>
@@ -11,7 +11,7 @@
              <intent-filter>
 --- smali_classes3/com/samsung/android/app/shealth/app/state/MultiUserManager.smali
 +++ smali_classes3/com/samsung/android/app/shealth/app/state/MultiUserManager.smali
-@@ -97,7 +97,7 @@
+@@ -105,7 +105,7 @@
      .locals 1
 
      .line 55
@@ -20,20 +20,20 @@
 
      return-object v0
  .end method
-@@ -134,42 +134,19 @@
+@@ -142,22 +142,12 @@
 
      cmp-long v0, v0, v2
 
 -    if-nez v0, :cond_0
 -
-     .line 35
+-    .line 35
 -    sget-object v0, Lcom/samsung/android/app/shealth/app/state/AppStateManager$MultiUserState;->OWNER:Lcom/samsung/android/app/shealth/app/state/AppStateManager$MultiUserState;
 -
 -    iput-object v0, p0, Lcom/samsung/android/app/shealth/app/state/MultiUserManager;->mState:Lcom/samsung/android/app/shealth/app/state/AppStateManager$State;
 -
 -    goto :goto_0
 -
--    .line 37
+     .line 37
      :cond_0
 -    sget-object v0, Lcom/samsung/android/app/shealth/app/state/AppStateManager$MultiUserState;->OTHERS:Lcom/samsung/android/app/shealth/app/state/AppStateManager$MultiUserState;
 +    sget-object v0, Lcom/samsung/android/app/shealth/app/state/AppStateManager$MultiUserState;->OWNER:Lcom/samsung/android/app/shealth/app/state/AppStateManager$MultiUserState;
@@ -44,8 +44,9 @@
      return-void
  .end method
 
- .method protected isStopState(Landroid/app/Activity;)Z
-     .locals 1
+@@ -172,20 +162,7 @@
+         }
+     .end annotation
 
 -    .line 97
 -    iget-object p1, p0, Lcom/samsung/android/app/shealth/app/state/MultiUserManager;->mState:Lcom/samsung/android/app/shealth/app/state/AppStateManager$State;
@@ -66,5 +67,5 @@
 -    return p1
 +    return v0
  .end method
---
-2.32.0
+-- 
+2.34.1
