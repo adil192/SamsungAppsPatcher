@@ -65,11 +65,27 @@ patchapk(){
   fi
 }
 
+checkDependency() {
+	if [ -z "$(which apksigner)" ]; then
+		echo "This application requires apksigner. Install it with:
+sudo apt install apksigner"
+		exit
+	fi
+
+	if [ -z "$(which zipalign)" ]; then
+		echo "This application requires zipalign. Install it with:
+sudo apt install zipalign"
+		exit
+	fi
+
+}
+
 
 
 mkdir -p patched
 mkdir -p decompiled
 
+CHECK_DEPENDENCY=1
 NO_PATCH=0
 VERB_PRESENT="patching"
 VERB_PAST="patched"
@@ -81,12 +97,19 @@ while [ ! $# -eq 0 ]; do
       VERB_PRESENT="decompiling"
       VERB_PAST="decompiled"
 			;;
+		--no-check-dependency | -f)
+			CHECK_DEPENDENCY=0
+			;;
     *)
       APKS_SPECIFIED+=("$1")
 	esac
 
 	shift
 done
+
+if [ $CHECK_DEPENDENCY == 1 ]; then
+	checkDependency
+fi
 
 if [ -z "$APKS_SPECIFIED" ]; then
   # if we don't specify any apps, patch all apps in the originals folder
