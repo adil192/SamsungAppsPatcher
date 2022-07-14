@@ -1,6 +1,6 @@
 --- smali/com/samsung/android/app/twatchmanager/sak/VerificationManager.smali
 +++ smali/com/samsung/android/app/twatchmanager/sak/VerificationManager.smali
-@@ -881,202 +881,13 @@
+@@ -890,202 +890,13 @@
      return-void
  .end method
  
@@ -72,14 +72,14 @@
 -
 -    const-string v2, "isSupportSAKVerify : Non Samsung Device, GAK support"
 -
--    invoke-static {v0, v2}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+-    invoke-static {v0, v2}, Lcom/samsung/android/app/twatchmanager/log/Log;->w(Ljava/lang/String;Ljava/lang/String;)V
 -
 -    return v5
 -
 -    :cond_1
 -    const-string v2, "isSupportSAKVerify : Non Samsung Device, GAK not support"
 -
--    invoke-static {v0, v2}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+-    invoke-static {v0, v2}, Lcom/samsung/android/app/twatchmanager/log/Log;->w(Ljava/lang/String;Ljava/lang/String;)V
 -
 -    return v1
 -
@@ -131,7 +131,7 @@
 -
 -    const-string v2, "isSupportSAKVerify : SAK support"
 -
--    invoke-static {v0, v2}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+-    invoke-static {v0, v2}, Lcom/samsung/android/app/twatchmanager/log/Log;->w(Ljava/lang/String;Ljava/lang/String;)V
 -
 -    return v5
 -
@@ -154,14 +154,14 @@
 -
 -    const-string v2, "isSupportSAKVerify : GAK support"
 -
--    invoke-static {v0, v2}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+-    invoke-static {v0, v2}, Lcom/samsung/android/app/twatchmanager/log/Log;->w(Ljava/lang/String;Ljava/lang/String;)V
 -
 -    return v5
 -
 -    :cond_5
 -    const-string v2, "isSupportSAKVerify : not support verifier"
 -
--    invoke-static {v0, v2}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+-    invoke-static {v0, v2}, Lcom/samsung/android/app/twatchmanager/log/Log;->w(Ljava/lang/String;Ljava/lang/String;)V
 -
 -    return v1
 -
@@ -169,7 +169,7 @@
 -    :goto_1
 -    const-string v2, "No information about Key type or Attestation not supported"
 -
--    invoke-static {v0, v2}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+-    invoke-static {v0, v2}, Lcom/samsung/android/app/twatchmanager/log/Log;->w(Ljava/lang/String;Ljava/lang/String;)V
 -    :try_end_1
 -    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
 -
@@ -196,17 +196,17 @@
 -
 -    move-result-object v3
 -
--    invoke-static {v0, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
--
--    invoke-virtual {v2}, Ljava/lang/Exception;->printStackTrace()V
+-    invoke-static {v0, v3}, Lcom/samsung/android/app/twatchmanager/log/Log;->i(Ljava/lang/String;Ljava/lang/String;)V
 +    .locals 1
  
--    return v1
+-    invoke-virtual {v2}, Ljava/lang/Exception;->printStackTrace()V
 +    const/4 v0, 0x0
-+
+ 
+-    return v1
 +    return v0
  .end method
  
  .method public requestSAKVerify(Landroid/bluetooth/BluetoothDevice;)V
---
-2.32.0
+-- 
+2.34.1
+
