@@ -9,51 +9,22 @@
          <meta-data android:name="wear-trusted-peer-packages" android:value="com.samsung.android.wear.shealth:9CA5170F381919DFE0446FCDAB18B19A143B3163"/>
          <receiver android:exported="false" android:name="com.samsung.android.app.shealth.receiver.BootReceiver" android:process=":remote">
              <intent-filter>
---- smali_classes3/com/samsung/android/app/shealth/app/state/MultiUserManager.smali
-+++ smali_classes3/com/samsung/android/app/shealth/app/state/MultiUserManager.smali
-@@ -105,7 +105,7 @@
-     .locals 1
-
-     .line 55
--    iget-object v0, p0, Lcom/samsung/android/app/shealth/app/state/MultiUserManager;->mState:Lcom/samsung/android/app/shealth/app/state/AppStateManager$State;
-+    sget-object v0, Lcom/samsung/android/app/shealth/app/state/AppStateManager$MultiUserState;->OWNER:Lcom/samsung/android/app/shealth/app/state/AppStateManager$MultiUserState;
-
+--- smali_classes3/com/samsung/android/app/shealth/app/state/l0.smali
++++ smali_classes3/com/samsung/android/app/shealth/app/state/l0.smali
+@@ -102,27 +102,16 @@
      return-object v0
  .end method
-@@ -142,22 +142,12 @@
-
-     cmp-long v0, v0, v2
-
--    if-nez v0, :cond_0
+ 
++# returns false if the current user is owner
+ .method protected c(Landroid/app/Activity;)Z
+     .locals 1
+ 
+-    .line 1
+-    iget-object p1, p0, Lcom/samsung/android/app/shealth/app/state/l0;->b:Lcom/samsung/android/app/shealth/app/state/AppStateManager$c;
 -
--    .line 35
 -    sget-object v0, Lcom/samsung/android/app/shealth/app/state/AppStateManager$MultiUserState;->OWNER:Lcom/samsung/android/app/shealth/app/state/AppStateManager$MultiUserState;
--
--    iput-object v0, p0, Lcom/samsung/android/app/shealth/app/state/MultiUserManager;->mState:Lcom/samsung/android/app/shealth/app/state/AppStateManager$State;
--
--    goto :goto_0
--
-     .line 37
-     :cond_0
--    sget-object v0, Lcom/samsung/android/app/shealth/app/state/AppStateManager$MultiUserState;->OTHERS:Lcom/samsung/android/app/shealth/app/state/AppStateManager$MultiUserState;
-+    sget-object v0, Lcom/samsung/android/app/shealth/app/state/AppStateManager$MultiUserState;->OWNER:Lcom/samsung/android/app/shealth/app/state/AppStateManager$MultiUserState;
-
-     iput-object v0, p0, Lcom/samsung/android/app/shealth/app/state/MultiUserManager;->mState:Lcom/samsung/android/app/shealth/app/state/AppStateManager$State;
-
--    :goto_0
-     return-void
- .end method
-
-@@ -172,20 +162,7 @@
-         }
-     .end annotation
-
--    .line 97
--    iget-object p1, p0, Lcom/samsung/android/app/shealth/app/state/MultiUserManager;->mState:Lcom/samsung/android/app/shealth/app/state/AppStateManager$State;
 +    const/4 v0, 0x0
-
--    sget-object v0, Lcom/samsung/android/app/shealth/app/state/AppStateManager$MultiUserState;->OWNER:Lcom/samsung/android/app/shealth/app/state/AppStateManager$MultiUserState;
--
+ 
 -    if-eq p1, v0, :cond_0
 -
 -    const/4 p1, 0x1
@@ -67,5 +38,19 @@
 -    return p1
 +    return v0
  .end method
+ 
++# stores current user as a variable
+ .method h()V
+     .locals 4
+ 
+@@ -166,7 +155,7 @@
+ 
+     .line 5
+     :cond_0
+-    sget-object v0, Lcom/samsung/android/app/shealth/app/state/AppStateManager$MultiUserState;->OTHERS:Lcom/samsung/android/app/shealth/app/state/AppStateManager$MultiUserState;
++    sget-object v0, Lcom/samsung/android/app/shealth/app/state/AppStateManager$MultiUserState;->OWNER:Lcom/samsung/android/app/shealth/app/state/AppStateManager$MultiUserState;
+ 
+     iput-object v0, p0, Lcom/samsung/android/app/shealth/app/state/l0;->b:Lcom/samsung/android/app/shealth/app/state/AppStateManager$c;
+ 
 -- 
 2.34.1
