@@ -9,6 +9,13 @@ This is a guide to patch galaxy wearable apps to work on a modified samsung phon
 | As I've moved on from having a Samsung phone and Samsung accessories, I will no longer be maintaining this project. |
 | ------------------------------------------------------------ |
 
+## March 2023 update
+
+There's a new project that could supercede this one: https://github.com/BlackMesa123/KnoxPatch.
+I haven't tried it myself of course but it's worth checking out
+
+<br /><br /><br /><br /><br /><br /><br />
+
 
 
 ## Download pre-patched apps
